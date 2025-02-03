@@ -29,7 +29,10 @@ unique_followers = compare_followers(file1, file2)
 # Output the result
 if unique_followers:
     print("Followers in file1 but not in file2:")
-    for follower in unique_followers:
-        print(follower)
+    # Open a new file to write the unique followers
+    with open('newNonFollowers.txt', 'w', encoding='utf-8') as outfile:
+        for follower in unique_followers:
+            print(follower)
+            outfile.write(follower + '\n')
 else:
     print("No followers found in file1 that are not in file2.")
